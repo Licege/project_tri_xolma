@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from './views/Home.vue'
+
 
 Vue.use(Router)
 
@@ -11,15 +11,56 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      component: Home
+      meta: {layout: 'main'},
+      component: () => import('./views/Home')
+    },
+    {
+      path: '/menu',
+      name: 'menu',
+      meta: {layout: 'main'},
+      component: () => import('./views/Menu')
     },
     {
       path: '/about',
       name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
+      meta: {layout: 'main'},
+      component: () => import('./views/About.vue')
+    },
+    {
+      path: '/contact',
+      name: 'contact',
+      meta: {layout: 'main'},
+      component: () => import('./views/Contacts')
+    },
+    {
+      path: '/reserve',
+      name: 'reserve',
+      meta: {layout: 'main'},
+      component: () => import('./views/Reserve')
+    },
+    {
+      path: '/gallery',
+      name: 'gallery',
+      meta: {layout: 'main'},
+      component: () => import('./views/Gallery')
+    },
+    {
+      path: '/reviews',
+      name: 'reviews',
+      meta: {layout: 'main'},
+      component: () => import('./views/Reviews')
+    },
+    {
+      path: '/vacancy',
+      name: 'vacancy',
+      meta: {layout: 'main'},
+      component: () => import('./views/Vacancy')
+    },
+    {
+      path: '/test',
+      name: 'test',
+      meta: {layout: 'main'},
+      component: () => import('./views/testPages')
     }
   ]
 })
