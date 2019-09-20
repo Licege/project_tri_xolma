@@ -2,7 +2,6 @@
     <div class="main-layout">
 
         <Header @scroll="hideHidder"></Header>
-
         <div v-scroll="hideHidder" class="fixedNavbar" :class="{hideMenu: isHideHeader}">
             <div class="tel">
                 <a href="tel:+79114541676" target="_blank">
@@ -10,11 +9,13 @@
                 </a>
             </div>
 
-            <button
-                    @click="toggleMenu"
-                    class="toggleMenu"
-            >{{ menuIsOpen ? 'Close' : 'Menu' }}
-            </button>
+
+                <button
+                        @click="toggleMenu"
+                        class="toggleMenu"
+                >{{ menuIsOpen ? 'Close' : 'Menu' }}
+                </button>
+
         </div>
 
 
@@ -45,7 +46,7 @@
     export default {
         name: "MainLayout",
         data: () => ({
-            isHideHeader: false
+            isHideHeader: true
         }),
         computed: {
             menuIsOpen() {
@@ -175,4 +176,14 @@
     * {
         box-sizing: border-box;
     }
+
+    .button-anim-enter-active, .button-anim-leave-active {
+        transition: all .5s;
+    }
+
+    .button-anim-enter, .button-anim-leave-to {
+        transform: translateX(200px);
+        opacity: 0;
+    }
+
 </style>

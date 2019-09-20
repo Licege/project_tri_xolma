@@ -1,7 +1,15 @@
 <template>
     <div class="gallery">
         <h1>Галерея</h1>
-        <lingallery :iid.sync="currentId" :width="width" :height="height" :responsive="responsive" :items="items"/>
+        <lingallery :iid.sync="currentId"
+                    :width="width"
+                    :height="height"
+                    :responsive="responsive"
+                    :showThumbnails="showThumbnails"
+                    :textColor="textColor"
+                    :accentColor="accentColor"
+                    :disableImageClick="disableImageClick"
+                    :items="items"/>
     </div>
 
 </template>
@@ -16,11 +24,16 @@
                 width: 600,
                 height: 400,
                 responsive: true,
+                showThumbnails: false,
+                accentColor: '#cc0000', //цвет спиннера
+                textColor: '#cc0000',
+                leftControlClass: '', //кастомизация
+                rightControlClass: '',
+                disableImageClick: true,
                 items: [
                     {
                         src: 'https://picsum.photos/600/400/?image=0',
                         thumbnail: 'https://picsum.photos/64/64/?image=0',
-                        caption: 'Три Холма',
                         id: 'someid1'
                     },
                     {

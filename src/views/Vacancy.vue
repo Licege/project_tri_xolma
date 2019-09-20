@@ -3,14 +3,18 @@
         <div class="vacancy-order">
             <div class="form">
                 <div class="title-vacancy">Заполните анкету</div>
-                <div class="item">Выберите вакансию</div>
-                <select name="prof" id="prof" class="prof" v-model="profession">
-                    <option selected value="Официант">Официант</option>
-                    <option selected value="Официант-бармен">Официант-бармен</option>
-                    <option selected value="Повар">Повар</option>
-                </select>
-                <div class="item">Представьтесь</div>
-                <input type="text" name="name" id="fio" placeholder="Ф.И.О." v-model="name" required>
+                <label for="prof">
+                    <div class="item">Выберите вакансию</div>
+                    <select name="prof" id="prof" class="prof" v-model="profession">
+                        <option selected value="Официант">Официант</option>
+                        <option selected value="Официант-бармен">Официант-бармен</option>
+                        <option selected value="Повар">Повар</option>
+                    </select>
+                </label>
+                <label for="fio">
+                    <div class="item">Представьтесь</div>
+                    <input type="text" name="name" id="fio" placeholder="Ф.И.О." v-model="name" required>
+                </label>
                 <div class="item">Дата рождения</div>
                 <select name="day" id="day" class="birthday" v-model="birthday" required>
                     <option value="0" disabled selected style="display: none">День</option>
@@ -66,14 +70,20 @@
                     <option v-for="year in years" :value="year">{{ year }}</option>
                 </select>
                 <div>
-                    <div class="item">Адрес проживания</div>
-                    <input type="text" name="address" id="address" placeholder="Адрес" v-model="address" required>
-                    <div class="item">Телефон</div>
-                    <input type="tel" name="phone" id="phoneNumber" placeholder="+7(___) ___-__-__" v-model="phone" required>
+                    <label for="address">
+                        <div class="item">Адрес проживания</div>
+                        <input type="text" name="address" id="address" placeholder="Адрес" v-model="address" required>
+                    </label>
+                    <label for="phoneNumber">
+                        <div class="item">Телефон</div>
+                        <input type="tel" name="phone" id="phoneNumber" placeholder="+7(___) ___-__-__" v-model="phone" required>
+                    </label>
                 </div>
                 <div>
-                    <div class="item">Полезные ссылки</div>
-                    <input type="text" name="social" id="social" placeholder="Соц. сети" v-model="socials" required>
+                    <label for="social">
+                        <div class="item">Полезные ссылки</div>
+                        <input type="text" name="social" id="social" placeholder="Соц. сети" v-model="socials" required>
+                    </label>
                 </div>
                 <div class="containerChoice">
                     <div class="med">
@@ -104,9 +114,13 @@
                     </div>
                 </div>
                 <div>
-                    <div class="item">Что-то о вас</div>
-                    <textarea name="hobbies" id="hobbies" cols="30" rows="10" placeholder="Расскажите" v-model="about" required></textarea>
-                    <div>Нажимая кнопку, я подтверждаю свою дееспособность, даю согласие на обработку своих персональных данных.</div>
+                    <label for="hobbies">
+                        <div class="item">Что-то о вас</div>
+                        <textarea name="hobbies" id="hobbies" cols="30" rows="10" placeholder="Расскажите" v-model="about" required></textarea>
+                    </label>
+                    <div class="pre-personal-data">Нажимая кнопку, я подтверждаю свою дееспособность, даю согласие на обработку своих
+                        <a class="personal-data" href="#">персональных данных.</a>
+                    </div>
                     <button @click="addSummaryMethod">Отправить</button>
                 </div>
             </div>
@@ -322,5 +336,19 @@
         cursor: pointer;
         border-radius: 10px;
         outline: none;
+    }
+
+    .pre-personal-data {
+        color: #999999;
+    }
+
+    .personal-data {
+        color: #999999;
+        text-decoration: none;
+        border-bottom: 1px dashed #999999;
+    }
+
+    .personal-data:hover {
+        color: #85744f;
     }
 </style>

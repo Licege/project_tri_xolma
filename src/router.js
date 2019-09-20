@@ -57,6 +57,18 @@ export default new Router({
       component: () => import('./views/Vacancy')
     },
     {
+      path: '/detail/:Pid',
+      name: 'detail',
+      meta: {layout: 'main'},
+      component: () => import('./views/Detail')
+    },
+    {
+      path: '/3d',
+      name: 'tour',
+      meta: {layout: 'empty'},
+      component: () => import('./views/3DTour')
+    },
+    {
       path: '/test',
       name: 'test',
       meta: {layout: 'main'},
